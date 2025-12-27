@@ -1,5 +1,6 @@
 # Import python packages
 import streamlit as st
+import requests
 from snowflake.snowpark.functions import col
 from snowflake.snowpark.functions import when_matched
 
@@ -18,7 +19,8 @@ session=cnx.session()
 my_dataframe = session.table("smoothies.public.orders").filter(col("ORDER_FILLED")==0).collect()
 #editable_df = st.data_editor(my_dataframe)
 #st.dataframe(data=my_dataframe, use_container_width=True)
-
+smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+st.text(smoothiefroot_response).json()
 
 if my_dataframe:
   editable_df = st.data_editor(my_dataframe)
@@ -37,6 +39,3 @@ if my_dataframe:
   else:
       st.success('There are no pending orders right now', icon='👍')
 
-import requests
-smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
-st.text(smoothiefroot_response).json())
