@@ -1,5 +1,4 @@
 import streamlit as st
-import requests
 from snowflake.snowpark.functions import col
 
 cnx=st.connection("snowflake")
@@ -26,6 +25,7 @@ ingredients_list = st.multiselect (
     , max_selections=5
 )
 
+import requests
 smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
 st.text(smoothiefroot_response)
 
