@@ -32,9 +32,9 @@ if my_dataframe:
                        , [when_matched().update({'ORDER_FILLED': edited_dataset['ORDER_FILLED']})]
                       )
       st.success("Someon clicked the button.", icon='👍')
-      except:
+    except:
         st.write('Something went wrong.')
-    else:
+  else:
       st.success('There are no pending orders right now', icon='👍')
 
 import requests
