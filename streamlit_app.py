@@ -20,7 +20,7 @@ my_dataframe = session.table("smoothies.public.orders").filter(col("ORDER_FILLED
 #editable_df = st.data_editor(my_dataframe)
 #st.dataframe(data=my_dataframe, use_container_width=True)
 smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
-st.text(smoothiefroot_response).json()
+st.text(smoothiefroot_response).json())
 
 if my_dataframe:
   editable_df = st.data_editor(my_dataframe)
